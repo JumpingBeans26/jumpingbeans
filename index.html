@@ -11,7 +11,7 @@
   <meta property="og:description" content="Plant-based coffee, handcrafted for every journey. Find our truck at markets and festivals.">
   <meta property="og:type" content="website">
 
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='%23F5EBDD' stroke='%233B2115'/%3E%3Cellipse cx='16' cy='16' rx='6' ry='9' fill='%23C88A2D' transform='rotate(20 16 16)'/%3E%3Cpath d='M16 8 Q17 16 16 24' stroke='%233B2115' stroke-width='1' fill='none'/%3E%3C/svg%3E">
+  <link rel="icon" href="assets/jumping-beans-logo.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -67,7 +67,7 @@
   <!-- NAV -->
   <nav class="nav" aria-label="Primary">
     <a href="#top" class="brand" aria-label="Jumping Beans Coffee — home">
-      <span class="brand__mark" aria-hidden="true"><span class="brand__bean"></span></span>
+      <img class="brand__logo" src="assets/jumping-beans-logo.png" alt="Jumping Beans Coffee" width="50" height="50">
       <span class="brand__word">
         <span class="brand__script">Jumping</span>
         <span class="brand__name">BEANS</span>
@@ -114,36 +114,6 @@
     </div>
   </header>
 
-  <!-- FEATURED INFO STRIP -->
-  <section class="featured" aria-label="What's on right now">
-    <div class="featured__inner">
-      <article class="feat-card">
-        <svg class="feat-card__ico"><use href="#i-pin"/></svg>
-        <div class="feat-card__label">Next Location</div>
-        <div class="feat-card__title">Riverside Farmers Market</div>
-        <div class="feat-card__meta">Sat · 8:00–14:00 · Bay 4</div>
-      </article>
-      <article class="feat-card">
-        <svg class="feat-card__ico"><use href="#i-cal"/></svg>
-        <div class="feat-card__label">Next Event</div>
-        <div class="feat-card__title">Greenfield Music Festival</div>
-        <div class="feat-card__meta">Sun · 11:00–20:00 · Main Field</div>
-      </article>
-      <article class="feat-card">
-        <svg class="feat-card__ico"><use href="#i-gift"/></svg>
-        <div class="feat-card__label">Current Promotion</div>
-        <div class="feat-card__title">Every 9th coffee free</div>
-        <div class="feat-card__meta">With the Coffee Club</div>
-      </article>
-      <article class="feat-card feat-card--accent">
-        <svg class="feat-card__ico"><use href="#i-spark"/></svg>
-        <div class="feat-card__label">Seasonal Special</div>
-        <div class="feat-card__title feat-card__title--script">Salted Caramel Latte</div>
-        <div class="feat-card__meta">Oat, almond or coconut</div>
-      </article>
-    </div>
-  </section>
-
   <!-- MARQUEE -->
   <div class="marquee" aria-hidden="true">
     <div class="marquee__track">
@@ -175,36 +145,19 @@
       <div class="section-head">
         <span class="script-eyebrow">Catch us out there</span>
         <h2 class="section-title">Find Our Truck</h2>
-        <p class="section-sub">This week's coffee stops — come say hello.</p>
+        <p class="section-sub">Come say hello — our weekly locations are coming soon.</p>
       </div>
       <div class="truck__grid">
-        <div class="media-frame media-frame--map" role="img" aria-label="Map showing where the truck is parked this week">
-          <span class="placeholder-label">location-map.embed</span>
-          <span class="map-pin" aria-hidden="true"><svg><use href="#i-pin"/></svg></span>
-          <a href="#truck" class="map-btn">Get directions →</a>
+        <div class="soon-panel" role="img" aria-label="Truck location map coming soon">
+          <svg class="soon-panel__ico"><use href="#i-pin"/></svg>
+          <span class="soon-script">Coming soon</span>
+          <p class="soon-note">Our live map and weekly locations are on their way.</p>
         </div>
         <div class="schedule">
-          <div class="schedule-card schedule-card--today">
-            <div class="schedule-card__head">
-              <span class="schedule-card__day">Today · Saturday</span>
-              <span class="badge badge--live"><span class="badge__dot"></span>We're here</span>
-            </div>
-            <div class="schedule-card__title">Riverside Farmers Market</div>
-            <div class="schedule-card__detail"><svg class="mini-ico"><use href="#i-clock"/></svg>8:00 – 14:00 · Bay 4</div>
-            <div class="schedule-card__detail"><svg class="mini-ico"><use href="#i-pin"/></svg>Riverside Ln, GL1 · <a href="#truck">Map</a></div>
-            <div class="schedule-card__menu">☕ Full menu available</div>
-          </div>
-          <div class="schedule-card">
-            <div class="schedule-card__day">Sunday</div>
-            <div class="schedule-card__title">Greenfield Music Festival</div>
-            <div class="schedule-card__detail"><svg class="mini-ico"><use href="#i-clock"/></svg>11:00 – 20:00 · Main Field</div>
-            <div class="schedule-card__menu">☕ Full menu · 🌱 Vegan treats</div>
-          </div>
-          <div class="schedule-card schedule-card--sage">
-            <div class="schedule-card__day">Next Week</div>
+          <a href="#events" class="schedule-card schedule-card--sage schedule-card--link">
             <div class="schedule-card__title">Book us for your event</div>
-            <a href="#events" class="text-link text-link--light">See availability →</a>
-          </div>
+            <span class="schedule-card__cta">Get in touch →</span>
+          </a>
         </div>
       </div>
     </div>
@@ -224,34 +177,30 @@
         <div class="menu__col">
           <h3 class="menu__col-title"><svg class="menu__col-ico"><use href="#i-cup"/></svg>Coffee</h3>
           <ul class="menu__list">
-            <li><span class="menu__item">Latte</span><span class="price">£3.4</span></li>
-            <li><span class="menu__item">Cappuccino</span><span class="price">£3.4</span></li>
-            <li><span class="menu__item">Flat White</span><span class="price">£3.4</span></li>
-            <li><span class="menu__item">Americano</span><span class="price">£2.8</span></li>
-            <li><span class="menu__item">Mocha</span><span class="price">£3.6</span></li>
-            <li><span class="menu__item">Espresso</span><span class="price">£2.4</span></li>
+            <li><span class="menu__item">Latte</span><span class="price">£3.40</span></li>
+            <li><span class="menu__item">Cappuccino</span><span class="price">£3.40</span></li>
+            <li><span class="menu__item">Flat White</span><span class="price">£3.40</span></li>
+            <li><span class="menu__item">Americano</span><span class="price">£2.80</span></li>
+            <li><span class="menu__item">Mocha</span><span class="price">£3.60</span></li>
+            <li><span class="menu__item">Espresso</span><span class="price">£2.40</span></li>
           </ul>
         </div>
         <div class="menu__col">
           <h3 class="menu__col-title"><svg class="menu__col-ico"><use href="#i-leaf"/></svg>Plant-Based Drinks</h3>
           <ul class="menu__list">
-            <li><span class="menu__item">Oat Latte <span class="tag tag--v">VG</span></span><span class="price">£3.6</span></li>
-            <li><span class="menu__item">Iced Coffee <span class="tag tag--df">DF</span></span><span class="price">£3.5</span></li>
-            <li><span class="menu__item">Matcha Latte <span class="tag tag--v">VG</span></span><span class="price">£3.8</span></li>
-            <li><span class="menu__item">Chai Latte <span class="tag tag--v">VG</span></span><span class="price">£3.8</span></li>
-            <li><span class="menu__item">Hot Chocolate <span class="tag tag--v">VG</span></span><span class="price">£3.4</span></li>
+            <li><span class="menu__item">Oat Latte <span class="tag tag--v">VG</span></span><span class="price">£3.60</span></li>
+            <li><span class="menu__item">Iced Coffee <span class="tag tag--df">DF</span></span><span class="price">£3.50</span></li>
+            <li><span class="menu__item">Matcha Latte <span class="tag tag--v">VG</span></span><span class="price">£3.80</span></li>
+            <li><span class="menu__item">Chai Latte <span class="tag tag--v">VG</span></span><span class="price">£3.80</span></li>
+            <li><span class="menu__item">Hot Chocolate <span class="tag tag--v">VG</span></span><span class="price">£3.40</span></li>
           </ul>
-          <div class="special-card">
-            <div class="special-card__tag">Seasonal Special</div>
-            <div class="special-card__title">Salted Caramel Latte</div>
-          </div>
         </div>
         <div class="menu__col">
           <h3 class="menu__col-title"><svg class="menu__col-ico"><use href="#i-spark"/></svg>Vegan Treats</h3>
           <ul class="menu__list">
-            <li><span class="menu__item">Vegan Muffins <span class="tag tag--v">VG</span></span><span class="price">£2.6</span></li>
-            <li><span class="menu__item">Cookies <span class="tag tag--gf">GF</span></span><span class="price">£1.8</span></li>
-            <li><span class="menu__item">Brownies <span class="tag tag--v">VG</span></span><span class="price">£2.4</span></li>
+            <li><span class="menu__item">Vegan Muffins <span class="tag tag--v">VG</span></span><span class="price">£2.60</span></li>
+            <li><span class="menu__item">Cookies <span class="tag tag--gf">GF</span></span><span class="price">£1.80</span></li>
+            <li><span class="menu__item">Brownies <span class="tag tag--v">VG</span></span><span class="price">£2.40</span></li>
           </ul>
           <div class="media-frame media-frame--treats" role="img" aria-label="A flat-lay of vegan treats">
             <span class="placeholder-label placeholder-label--dark">treats-flatlay.jpg</span>
@@ -275,23 +224,11 @@
         <svg class="club-card__sprig" aria-hidden="true"><use href="#sprig"/></svg>
         <span class="script-eyebrow">Members only</span>
         <h3 class="card-title">Join the Jumping Beans family</h3>
-        <p class="card-body">Sign up to the Coffee Club for rewards, birthday treats and first dibs on seasonal specials. It's free — and it's how regulars roll.</p>
-        <ul class="perks">
-          <li><svg class="perk-ico"><use href="#i-cup"/></svg>Every 9th coffee on us</li>
-          <li><svg class="perk-ico"><use href="#i-gift"/></svg>A free coffee on your birthday</li>
-          <li><svg class="perk-ico"><use href="#i-cal"/></svg>Event &amp; location updates</li>
-          <li><svg class="perk-ico"><use href="#i-leaf"/></svg>First taste of new plant-based brews</li>
-        </ul>
-        <form class="club-form" id="club-form" novalidate>
-          <div class="club-form__row">
-            <label class="visually-hidden" for="club-name">Your name</label>
-            <input type="text" id="club-name" name="name" placeholder="Your name" autocomplete="name" required>
-            <label class="visually-hidden" for="club-email">Your email</label>
-            <input type="email" id="club-email" name="email" placeholder="Your email" autocomplete="email" required>
-          </div>
-          <button type="submit" class="btn btn--caramel btn--block">Join the Club</button>
-          <p class="form-status" id="club-status" role="status" aria-live="polite"></p>
-        </form>
+        <div class="soon-panel soon-panel--onDark">
+          <svg class="soon-panel__ico"><use href="#i-gift"/></svg>
+          <span class="soon-script">Coming soon</span>
+          <p class="soon-note soon-note--light">Our Coffee Club rewards are brewing. Watch this space.</p>
+        </div>
       </div>
 
       <div class="club-side">
@@ -303,7 +240,7 @@
               <svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg>
             </div>
             <p>"Best oat latte I've had, full stop. The truck at the Riverside market is the highlight of my Saturday."</p>
-            <div class="review__by">— Priya, Gloucester</div>
+            <div class="review__by">— Priya</div>
           </article>
           <article class="review">
             <div class="review__stars" aria-label="5 out of 5 stars">
@@ -319,27 +256,13 @@
 
   <!-- ORDER AHEAD -->
   <section id="order" class="order">
-    <div class="order__inner">
-      <div class="order__copy">
-        <span class="script-eyebrow">Skip the queue</span>
-        <h2 class="section-title">Order ahead on the app</h2>
-        <p class="order__body">Pre-order from wherever you are and collect when it suits you. No more waiting at the hatch.</p>
-        <ol class="steps">
-          <li><span class="steps__n">1</span>Choose your location</li>
-          <li><span class="steps__n">2</span>Select your drinks</li>
-          <li><span class="steps__n">3</span>Pick a collection time</li>
-          <li><span class="steps__n">4</span>Collect your coffee ☕</li>
-        </ol>
-        <div class="order__apps">
-          <a href="#order" class="app-badge"><svg class="app-badge__ico"><use href="#i-phone"/></svg><span><small>Download on the</small>App Store</span></a>
-          <a href="#order" class="app-badge"><svg class="app-badge__ico"><use href="#i-phone"/></svg><span><small>Get it on</small>Google Play</span></a>
-        </div>
-      </div>
-      <div class="order__qr">
-        <div class="qr" role="img" aria-label="QR code to download the Jumping Beans app">
-          <span class="placeholder-label placeholder-label--dark">app-qr.png</span>
-        </div>
-        <p class="qr__caption">Scan to download</p>
+    <div class="order__inner order__inner--soon">
+      <span class="script-eyebrow">Skip the queue</span>
+      <h2 class="section-title">Order ahead on the app</h2>
+      <div class="soon-panel soon-panel--bare">
+        <svg class="soon-panel__ico"><use href="#i-cup"/></svg>
+        <span class="soon-script">Coming soon</span>
+        <p class="soon-note">Pre-order and skip the queue — our app is on the way.</p>
       </div>
     </div>
   </section>
@@ -355,10 +278,6 @@
       <div class="gallery__grid">
         <div class="gallery__tile" role="img" aria-label="The coffee truck at a market"><span class="placeholder-label placeholder-label--dark">truck-market.jpg</span></div>
         <div class="gallery__tile" role="img" aria-label="Latte art close-up"><span class="placeholder-label placeholder-label--dark">latte-art.jpg</span></div>
-        <div class="gallery__tile" role="img" aria-label="Festival crowd"><span class="placeholder-label placeholder-label--dark">festival.jpg</span></div>
-        <div class="gallery__tile" role="img" aria-label="Oat milk being poured"><span class="placeholder-label placeholder-label--dark">oat-pour.jpg</span></div>
-        <div class="gallery__tile" role="img" aria-label="Customers enjoying coffee"><span class="placeholder-label placeholder-label--dark">customers.jpg</span></div>
-        <div class="gallery__tile" role="img" aria-label="Coffee beans"><span class="placeholder-label placeholder-label--dark">beans.jpg</span></div>
       </div>
     </div>
   </section>
@@ -424,7 +343,7 @@
       <div class="footer__top">
         <div class="footer__col footer__col--brand">
           <div class="brand brand--footer">
-            <span class="brand__mark brand__mark--lg" aria-hidden="true"><span class="brand__bean brand__bean--lg"></span></span>
+            <img class="brand__logo brand__logo--lg" src="assets/jumping-beans-logo.png" alt="Jumping Beans Coffee" width="60" height="60">
             <span class="brand__word">
               <span class="brand__script brand__script--lg">Jumping</span>
               <span class="brand__name brand__name--lg">BEANS COFFEE</span>
