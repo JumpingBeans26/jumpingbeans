@@ -6,11 +6,9 @@ Real assets in use:
 - `barista-pour.jpg` — Our Story section + Gallery tile.
 - `gram-espresso.jpg`, `gram-promo.jpg`, `gram-box.jpg` — Gallery tiles.
 
-Remaining placeholders to replace (striped CSS boxes reference these names):
+Remaining placeholder to replace:
 
 | File | Used in | Spec |
 |------|---------|------|
 | `coffee-truck-hero.jpg` | Hero | Full-bleed truck shot (cream overlay sits on top) |
-| `treats-flatlay.jpg` | Menu | 1:1 vegan treats |
-| `truck-at-sunset.jpg` | Events | 16:9 truck at an event |
 | `location-map.embed` | Find Our Truck | Google Maps / Mapbox embed (currently "coming soon") |
