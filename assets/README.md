@@ -3,8 +3,8 @@
 Real assets in use:
 - `jumping-beans-logo.png` — brand logo, cropped square (nav & footer, shown as a circle).
 - `jumping-beans-logo-full.jpg` — original full-frame logo (1536×1024).
-- `barista-pour.jpg` — Our Story section + one Gallery tile.
-- `gram-espresso.jpg` — Gallery tile (espresso pour).
+- `barista-pour.jpg` — Our Story section + Gallery tile.
+- `gram-espresso.jpg`, `gram-promo.jpg`, `gram-box.jpg` — Gallery tiles.
 
 Remaining placeholders to replace (striped CSS boxes reference these names):
 
