@@ -35,10 +35,14 @@
   }
 
   /* ---- Form helper --------------------------------------- */
-  // Wires a form to a placeholder async "submit". Replace the setTimeout
-  // block with a real POST to your provider (Mailchimp / Klaviyo / HubSpot
-  // for lists; an email or CRM endpoint for booking enquiries) and surface
-  // the returned success / error states.
+  // Wires a form's submit to success / error states.
+  //
+  // - For the newsletter and Coffee Club lists this is a placeholder submit:
+  //   replace the setTimeout block with a real POST to your provider
+  //   (Mailchimp / Klaviyo / HubSpot).
+  // - When `opts.mailto` is set (the booking enquiry form), the form composes
+  //   a pre-filled email to that address using the visitor's mail app, so the
+  //   enquiry is received at the business inbox.
   function wireForm(formId, statusId, opts) {
     var form = document.getElementById(formId);
     var status = document.getElementById(statusId);
@@ -49,6 +53,21 @@
       status.textContent = msg;
       status.classList.remove('is-success', 'is-error');
       if (kind) status.classList.add(kind);
+    }
+
+    // Build a mailto: link from the named fields listed in opts.fields.
+    function buildMailto() {
+      var lines = opts.fields.map(function (f) {
+        var el = form.elements[f[0]];
+        var v = el ? String(el.value).trim() : '';
+        return f[1] + ': ' + (v || '-');
+      });
+      var name = form.elements.name ? form.elements.name.value.trim() : '';
+      var subject = 'Event booking enquiry' + (name ? ' - ' + name : '');
+      var body = 'New event booking enquiry from the Jumping Beans website:\n\n' + lines.join('\n');
+      return 'mailto:' + opts.mailto +
+        '?subject=' + encodeURIComponent(subject) +
+        '&body=' + encodeURIComponent(body);
     }
 
     form.addEventListener('submit', function (e) {
@@ -66,6 +85,14 @@
       }
 
       var button = form.querySelector('button[type="submit"]');
+
+      // Booking enquiry: open the visitor's mail app addressed to the business.
+      if (opts.mailto) {
+        window.location.assign(buildMailto());
+        setStatus(opts.successMsg, 'is-success');
+        return;
+      }
+
       if (button) button.disabled = true;
       setStatus(opts.pendingMsg, null);
 
@@ -91,7 +118,17 @@
 
   wireForm('booking-form', 'booking-status', {
     invalidMsg: 'Please add your name and a valid email so we can reply.',
-    pendingMsg: 'Sending your enquiry…',
-    successMsg: 'Thanks — we’ve got your enquiry and will be in touch shortly. 🎉'
+    successMsg: 'Opening your email app to send the enquiry to us — just hit send. 🎉',
+    mailto: 'jumping_bean26@hotmail.com',
+    fields: [
+      ['name', 'Name'],
+      ['event_name', 'Company / event name'],
+      ['email', 'Email'],
+      ['phone', 'Phone'],
+      ['date', 'Event date'],
+      ['location', 'Event location'],
+      ['attendance', 'Expected attendance'],
+      ['type', 'Event type']
+    ]
   });
 })();

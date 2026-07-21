@@ -968,10 +968,14 @@ input, select { font-family: inherit; font-size: 14px; color: var(--espresso); }
   }
 
   /* ---- Form helper --------------------------------------- */
-  // Wires a form to a placeholder async "submit". Replace the setTimeout
-  // block with a real POST to your provider (Mailchimp / Klaviyo / HubSpot
-  // for lists; an email or CRM endpoint for booking enquiries) and surface
-  // the returned success / error states.
+  // Wires a form's submit to success / error states.
+  //
+  // - For the newsletter and Coffee Club lists this is a placeholder submit:
+  //   replace the setTimeout block with a real POST to your provider
+  //   (Mailchimp / Klaviyo / HubSpot).
+  // - When `opts.mailto` is set (the booking enquiry form), the form composes
+  //   a pre-filled email to that address using the visitor's mail app, so the
+  //   enquiry is received at the business inbox.
   function wireForm(formId, statusId, opts) {
     var form = document.getElementById(formId);
     var status = document.getElementById(statusId);
@@ -982,6 +986,21 @@ input, select { font-family: inherit; font-size: 14px; color: var(--espresso); }
       status.textContent = msg;
       status.classList.remove('is-success', 'is-error');
       if (kind) status.classList.add(kind);
+    }
+
+    // Build a mailto: link from the named fields listed in opts.fields.
+    function buildMailto() {
+      var lines = opts.fields.map(function (f) {
+        var el = form.elements[f[0]];
+        var v = el ? String(el.value).trim() : '';
+        return f[1] + ': ' + (v || '-');
+      });
+      var name = form.elements.name ? form.elements.name.value.trim() : '';
+      var subject = 'Event booking enquiry' + (name ? ' - ' + name : '');
+      var body = 'New event booking enquiry from the Jumping Beans website:\n\n' + lines.join('\n');
+      return 'mailto:' + opts.mailto +
+        '?subject=' + encodeURIComponent(subject) +
+        '&body=' + encodeURIComponent(body);
     }
 
     form.addEventListener('submit', function (e) {
@@ -999,6 +1018,14 @@ input, select { font-family: inherit; font-size: 14px; color: var(--espresso); }
       }
 
       var button = form.querySelector('button[type="submit"]');
+
+      // Booking enquiry: open the visitor's mail app addressed to the business.
+      if (opts.mailto) {
+        window.location.assign(buildMailto());
+        setStatus(opts.successMsg, 'is-success');
+        return;
+      }
+
       if (button) button.disabled = true;
       setStatus(opts.pendingMsg, null);
 
@@ -1024,8 +1051,18 @@ input, select { font-family: inherit; font-size: 14px; color: var(--espresso); }
 
   wireForm('booking-form', 'booking-status', {
     invalidMsg: 'Please add your name and a valid email so we can reply.',
-    pendingMsg: 'Sending your enquiry\u2026',
-    successMsg: 'Thanks \u2014 we\u2019ve got your enquiry and will be in touch shortly. \ud83c\udf89'
+    successMsg: 'Opening your email app to send the enquiry to us \u2014 just hit send. \ud83c\udf89',
+    mailto: 'jumping_bean26@hotmail.com',
+    fields: [
+      ['name', 'Name'],
+      ['event_name', 'Company / event name'],
+      ['email', 'Email'],
+      ['phone', 'Phone'],
+      ['date', 'Event date'],
+      ['location', 'Event location'],
+      ['attendance', 'Expected attendance'],
+      ['type', 'Event type']
+    ]
   });
 })();
 
