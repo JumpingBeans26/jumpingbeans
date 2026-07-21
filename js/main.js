@@ -1,10 +1,13 @@
 /* =========================================================
-   Jumping Beans Coffee — interactions
+   Jumping Beans Coffee -- interactions
    - Mobile nav toggle
-   - Newsletter signup (placeholder submit with success/error states)
+   - Newsletter, Coffee Club and Events booking forms
+     (placeholder submits with success / error states)
    ========================================================= */
 (function () {
   'use strict';
+
+  var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
   /* ---- Mobile nav ---------------------------------------- */
   var toggle = document.querySelector('.nav__toggle');
@@ -23,59 +26,72 @@
       toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
       toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
     });
-
-    // Close the menu after tapping a link (single-page anchors)
     menu.querySelectorAll('a').forEach(function (link) {
       link.addEventListener('click', closeMenu);
     });
-
-    // Close on Escape
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape') closeMenu();
     });
   }
 
-  /* ---- Newsletter signup --------------------------------- */
-  var form = document.getElementById('signup-form');
-  var status = document.getElementById('signup-status');
+  /* ---- Form helper --------------------------------------- */
+  // Wires a form to a placeholder async "submit". Replace the setTimeout
+  // block with a real POST to your provider (Mailchimp / Klaviyo / HubSpot
+  // for lists; an email or CRM endpoint for booking enquiries) and surface
+  // the returned success / error states.
+  function wireForm(formId, statusId, opts) {
+    var form = document.getElementById(formId);
+    var status = document.getElementById(statusId);
+    if (!form) return;
 
-  if (form) {
+    function setStatus(msg, kind) {
+      if (!status) return;
+      status.textContent = msg;
+      status.classList.remove('is-success', 'is-error');
+      if (kind) status.classList.add(kind);
+    }
+
     form.addEventListener('submit', function (e) {
       e.preventDefault();
 
-      var input = form.querySelector('input[type="email"]');
-      var email = input ? input.value.trim() : '';
-      var valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+      // Validate required fields (native validity + explicit email check)
+      var invalid = form.querySelector(':invalid');
+      var emailField = form.querySelector('input[type="email"]');
+      var emailOk = !emailField || EMAIL_RE.test(emailField.value.trim());
 
-      function setStatus(msg, kind) {
-        if (!status) return;
-        status.textContent = msg;
-        status.classList.remove('is-success', 'is-error');
-        if (kind) status.classList.add(kind);
-      }
-
-      if (!valid) {
-        setStatus('Please enter a valid email address.', 'is-error');
-        if (input) input.focus();
+      if (invalid || !emailOk) {
+        setStatus(opts.invalidMsg, 'is-error');
+        (invalid || emailField).focus();
         return;
       }
 
-      // ---------------------------------------------------------------
-      // Placeholder submission.
-      // Replace this block with a real provider (Mailchimp, Klaviyo,
-      // Buttondown, etc.) — POST `email` to your list endpoint and
-      // surface the returned success / error states below.
-      // ---------------------------------------------------------------
       var button = form.querySelector('button[type="submit"]');
       if (button) button.disabled = true;
-      setStatus('Signing you up…', null);
+      setStatus(opts.pendingMsg, null);
 
-      // Simulate an async request so the states are wired and visible.
       window.setTimeout(function () {
-        setStatus('Thanks! You’re on the list — see you out there. ☕', 'is-success');
+        setStatus(opts.successMsg, 'is-success');
         form.reset();
         if (button) button.disabled = false;
       }, 600);
     });
   }
+
+  wireForm('signup-form', 'signup-status', {
+    invalidMsg: 'Please enter a valid email address.',
+    pendingMsg: 'Signing you up…',
+    successMsg: 'Thanks! You’re on the list — see you out there. ☕'
+  });
+
+  wireForm('club-form', 'club-status', {
+    invalidMsg: 'Please add your name and a valid email.',
+    pendingMsg: 'Joining…',
+    successMsg: 'Welcome to the family! Check your inbox for your welcome email. ☕'
+  });
+
+  wireForm('booking-form', 'booking-status', {
+    invalidMsg: 'Please add your name and a valid email so we can reply.',
+    pendingMsg: 'Sending your enquiry…',
+    successMsg: 'Thanks — we’ve got your enquiry and will be in touch shortly. 🎉'
+  });
 })();
