@@ -1,0 +1,83 @@
+{
+  "brand": "Jumping Beans Coffee Ltd",
+  "tagline": "Plant-powered coffee. Real connection.",
+  "colors": {
+    "espresso": "#3B2410",
+    "espressoDark": "#2A1809",
+    "creamDeep": "#F4E8D6",
+    "cream": "#FBF4E8",
+    "caramel": "#C27C2E",
+    "caramelLight": "#E3A85C",
+    "coffee": "#6B4226",
+    "sage": "#6E6B42",
+    "terracotta": "#B2600C",
+    "ink": "#2E1B0C"
+  },
+  "colorUsage": {
+    "primaryAction": "caramel",
+    "primaryActionText": "espressoDark",
+    "background": "cream",
+    "surface": "creamDeep",
+    "headerNavBackground": "cream (translucent)",
+    "heroBackground": "espressoDark",
+    "textOnDark": "cream",
+    "textOnLight": "ink",
+    "categoryBanners": {
+      "coffee": "coffee",
+      "matchaSecondary": "sage",
+      "icedCoffee": "caramelLight",
+      "specials": "caramel",
+      "tea": "terracotta",
+      "food": "coffee",
+      "comboDeals": "espressoDark"
+    }
+  },
+  "typography": {
+    "headingFont": "Fraunces, serif",
+    "scriptAccentFont": "Great Vibes, cursive",
+    "bodyFont": "Manrope, sans-serif",
+    "googleFontsImport": "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Great+Vibes&family=Manrope:wght@400;500;600;700&display=swap"
+  },
+  "radii": {
+    "card": "10px",
+    "buttonPill": "999px",
+    "imageFrame": "14px"
+  },
+  "shadow": "0 4px 16px rgba(42,24,9,0.09)",
+  "iconStyle": "monoline, stroke-width 1.6, rounded caps, no fill — hand-drawn feel, not glossy/gradient",
+  "logo": {
+    "file": "jumping-beans-logo.png",
+    "shape": "circular badge",
+    "usage": "app icon, splash screen, nav bar mark, receipt/order confirmation header"
+  },
+  "socialLinks": {
+    "instagram": "https://www.instagram.com/jumping_beans26/",
+    "tiktok": "https://www.tiktok.com/@jumpingbeanscoffee"
+  },
+  "contact": {
+    "email": "jumping_bean26@hotmail.com",
+    "location": "London, England"
+  },
+  "coreFeatures": [
+    "Signature drink spotlight — Jumping Beans Signature Salted Caramel Oat Flat White, featured prominently, not buried in a full menu list",
+    "Coffee menu as the primary/default view — espresso, americano, flat white, cappuccino, latte, mocha, baby chino",
+    "Jumping Beans Specials — flavoured oat lattes (vanilla, caramel, hazelnut mocha, chai)",
+    "Iced Coffee menu",
+    "Tea menu",
+    "Matcha menu — present but secondary, positioned after Specials, not visually competing with coffee",
+    "Food / pastries menu",
+    "Combo deals — coffee+pastry and matcha+pastry pairings",
+    "Loyalty / 'Perk Me Up' — buy a coffee, collect points",
+    "Merch — t-shirts, tote bags, mugs, reusable cups; marked 'Coming Soon', not purchasable yet",
+    "Find Our Truck — real vehicle photos + short video, current/upcoming locations",
+    "Gallery / social feed style section",
+    "Customer reviews",
+    "Booking/enquiry for events & catering",
+    "Newsletter or community sign-up"
+  ],
+  "notes": [
+    "All drinks are made with premium oat milk (plant-based positioning) — reflect this near the top of any menu screen",
+    "Avoid honey or other non-vegan ingredients in copy or recipes",
+    "Keep visual style flat/solid-color, not glossy gradients, to match the deliberately hand-crafted (non-AI-looking) brand direction"
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "_purpose": "Single source of truth for menu content, shared by website and app. Update here first, then propagate.",
+  "menuCategoryOrder": ["coffee", "specials", "iced", "tea", "matcha", "food", "combos"],
+  "signatureDrink": {
+    "name": "Jumping Beans Signature Salted Caramel Oat Flat White",
+    "description": "Double espresso, steamed oat milk and house-made vegan caramel syrup, finished with a pinch of sea salt.",
+    "price": "£4.50"
+  },
+  "menu": {
+    "coffee": {
+      "footnote": "All drinks made with premium oat milk",
+      "items": [
+        { "name": "Espresso", "price": "£2.50" },
+        { "name": "Americano", "price": "£3.00" },
+        { "name": "Flat White", "price": "£3.50" },
+        { "name": "Cappuccino", "price": "£3.50" },
+        { "name": "Latte", "price": "£3.75" },
+        { "name": "Large Latte", "price": "£4.25" },
+        { "name": "Mocha", "price": "£4.25" }
+      ]
+    },
+    "specials": {
+      "label": "Jumping Beans Specials",
+      "items": [
+        { "name": "Signature Salted Caramel Oat Flat White", "price": "£4.50", "signature": true },
+        { "name": "Vanilla Oat Latte", "price": "£4.25" },
+        { "name": "Caramel Oat Latte", "price": "£4.25" },
+        { "name": "Hazelnut Mocha", "price": "£4.50" },
+        { "name": "Chai Oat Latte", "price": "£4.25" }
+      ]
+    },
+    "iced": {
+      "label": "Iced Coffee",
+      "items": [
+        { "name": "Iced Americano", "price": "£3.50" },
+        { "name": "Iced Latte", "price": "£4.00" },
+        { "name": "Iced Vanilla Latte", "price": "£4.50" },
+        { "name": "Iced Caramel Latte", "price": "£4.50" },
+        { "name": "Iced Mocha", "price": "£4.75" }
+      ]
+    },
+    "tea": {
+      "label": "Tea",
+      "items": [
+        { "name": "English Breakfast", "price": "£2.50" },
+        { "name": "Earl Grey", "price": "£2.50" },
+        { "name": "Herbal Tea", "price": "£2.75" },
+        { "name": "Fresh Mint Tea", "price": "£3.00" },
+        { "name": "Chai Tea Latte", "price": "£3.75" }
+      ]
+    },
+    "matcha": {
+      "label": "Matcha (also available)",
+      "items": [
+        { "name": "Classic Matcha Latte", "price": "£4.50" },
+        { "name": "Vanilla Matcha Latte", "price": "£4.75" },
+        { "name": "Strawberry Matcha Latte", "price": "£5.00" },
+        { "name": "Iced Matcha Latte", "price": "£4.75" },
+        { "name": "Iced Vanilla Matcha", "price": "£5.00" },
+        { "name": "Strawberry Matcha Ice Drink", "price": "£5.00" }
+      ],
+      "footnote": "Also try the Strawberry Matcha Cloud, £5.50"
+    },
+    "food": {
+      "label": "Food",
+      "items": [
+        { "name": "Plain Croissant", "price": "£2.50" },
+        { "name": "Chocolate Croissant", "price": "£3.00" },
+        { "name": "Fresh Muffin", "price": "£3.25" },
+        { "name": "Savoury Pastry", "price": "£3.75–£4.25 depending on filling" }
+      ]
+    },
+    "combos": {
+      "label": "Combo Deals",
+      "items": [
+        { "name": "Coffee + Croissant", "price": "£5.50" },
+        { "name": "Coffee + Muffin", "price": "£5.75" },
+        { "name": "Coffee + Savoury Pastry", "price": "£6.50" },
+        { "name": "Matcha + Croissant", "price": "£6.50" },
+        { "name": "Matcha + Muffin", "price": "£6.75" }
+      ]
+    }
+  }
+}

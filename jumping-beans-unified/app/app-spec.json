@@ -1,0 +1,46 @@
+{
+  "_purpose": "Companion app spec — screens, loyalty mechanics, gifting, truck schedule. Colours/type come from ../brand/design-tokens.json; menu content from ../shared/menu.json.",
+  "_lastUpdated": "2026-08-07",
+  "screens": ["Home", "Find Our Truck", "Order (Menu)", "Perks", "Merch", "Account"],
+  "merchScreen": {
+    "status": "Coming Soon — not yet purchasable, matches the website's merch section exactly",
+    "items": ["T-Shirts", "Tote Bags", "Mugs", "Reusable Cups"],
+    "notifyMe": "Prompt to get notified when the shop opens"
+  },
+  "homeScreenFeatures": [
+    "Personalised greeting",
+    "\"We're trading today\" live location banner (tap → Find Our Truck)",
+    "Quick Order shortcut",
+    "Send a Coffee (gifting) shortcut",
+    "Featured-this-week carousel",
+    "Perks progress teaser (ring, tap → Perks)"
+  ],
+  "truckScreen": {
+    "features": ["Day tabs (Today/Thu/Fri/Sat/Sun)", "Stop list per day", "Map-pin visual"],
+    "stopsByDay": {
+      "Today": { "place": "Borough Market", "area": "London Bridge", "time": "8:00 – 14:00" },
+      "Thu": { "place": "Shoreditch High St", "area": "Shoreditch", "time": "8:00 – 14:00" },
+      "Fri": { "place": "Old Spitalfields Market", "area": "Spitalfields", "time": "9:00 – 15:00" },
+      "Sat": { "place": "Broadway Market", "area": "London Fields", "time": "9:00 – 16:00" },
+      "Sun": { "place": "Columbia Road Flower Market", "area": "Bethnal Green", "time": "9:00 – 15:00" }
+    },
+    "note": "Locations are placeholder/demo data — replace with real trading schedule"
+  },
+  "loyalty": {
+    "name": "Perk Me Up",
+    "mechanic": "collect points per purchase (not a stamp card)",
+    "pointsToFreeCoffee": 200,
+    "pointsPerLoggedPurchase": 20,
+    "rewards": [
+      { "name": "Free Coffee", "cost": 100, "note": "Any size, any milk" },
+      { "name": "Free Milk Upgrade", "cost": 40, "note": "Oat, always included" },
+      { "name": "Free Pastry", "cost": 180, "note": "Any pastry from the food menu" }
+    ]
+  },
+  "giftingFeature": "Send a Coffee — choose a coffee-menu drink, enter a recipient's name, sends a redeemable note",
+  "cart": "Simple in-memory order builder, floating summary bar, place-order confirmation sheet",
+  "reconciliationStatus": {
+    "colorPalette": "PENDING — app UI still built against the old forest/oat/gold tokens; needs to be re-themed against ../brand/design-tokens.json (espresso/caramel/sage/terracotta)",
+    "everythingElse": "Already consistent with website: menu content, tagline, positioning, socials, signature drink, typography, icon style"
+  }
+}
